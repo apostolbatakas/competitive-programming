@@ -8,7 +8,8 @@ int main() {
     
     cin >> n;
         
-    cin.ignore();
+    cin.ignore(); //Bypass '\n'.
+    
     getline(cin , s);
         
     for (int i = 0; i < n; i++) {
