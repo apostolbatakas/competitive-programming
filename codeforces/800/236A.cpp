@@ -4,24 +4,22 @@ using namespace std;
 
 int main() {
     int count = 0;
-    
+    bool l[26] = {0};
     string s;
-    
     cin >> s;
-        
+    
     for (int i = 0; i < s.size(); i++) {
-        for (int j = i + 1; j < s.size(); j++) {
-            if (s[i] == s[j]) {
-                count++;
-                break;
-            }
+        
+        if (!l[s[i] - 'a']) {
+            l[s[i] - 'a'] = true;
+            count++;
         }
     }
-    if ((s.size() - count) % 2 == 0) {
+    
+    if (count % 2 == 0) {
         cout << "CHAT WITH HER!" << endl;
     }
     else {
         cout << "IGNORE HIM!" << endl;
     }
-    
 }
