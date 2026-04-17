@@ -4,26 +4,27 @@ using namespace std;
 
 int main() {
     string s, t;
-    int flag = 1;
-    
     cin >> s >> t;
     
-    if (s.size() != t.size()) {
-        cout << "NO" << endl;
+    
+    bool reverse = true;
+    
+    if (s.size() == t.size()) {
+        for (int i = 0; i < s.size(); i++) {
+            if (s[i] != t[t.size() - i - 1]) {
+                reverse = false;
+                break;
+            }
+        }
     }
     else {
-        int j = s.size() - 1;
-        for(int i = 0; i < s.size(); i++) {
-            if (s[i] != t[j]) {
-                flag = 0;
-            }
-            j--;
-        }
-        if (flag) {
-            cout << "YES" << endl;
-        }
-        else {
-            cout << "NO" << endl;
-        }
+        reverse = false;
+    }
+    
+    if (reverse) {
+        cout << "YES" << endl;
+    }
+    else {
+        cout << "NO" << endl;
     }
 }
