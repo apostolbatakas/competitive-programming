@@ -1,34 +1,27 @@
 #include <iostream>
-
 using namespace std;
 
-bool distinct(int n) {
-    
-    bool seen[10] = {false}; // Frequency array for digits 0 - 9
-    
-    while (n > 0) {
-        
-        int digit = n % 10;
-        
-        if(seen[digit]) { // If we've seen it before return false
-            return false;
-        }
-        seen[digit] = true; // Mark the digit as seen, by changing the value to true
-        n /= 10;     // Move to the next digit
-    }
-    
-    return true; // If all the digits are distinct, then we return true
-}
-
-int main () {
+int main() {
     int y;
     cin >> y;
     
     while (true) {
-        y++;    // Move to the next year immediately
-        if(distinct(y)) {
-            cout << y << endl;
+        y++;
+        int temp = y;
+        bool dig[10] = {false}; // Frequency array. In each iteration all values become false
+        bool found = true;  // If all digits are digits we stop the outer loop
+        while (temp > 0) {
+            if (dig[temp % 10] == true) {  // If the value is true we know that a digit appeared 2 times, and we break the loop
+                found = false;
+                break;
+            }
+            dig[temp % 10] = true;
+            temp /= 10;
+        }
+        if (found) {
             break;
         }
     }
+    cout << y << endl;
 }
+
