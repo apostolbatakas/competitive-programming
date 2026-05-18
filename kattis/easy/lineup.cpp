@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 int main() {
@@ -15,7 +14,6 @@ int main() {
     bool inc = true;
     bool dec = true;
     
-    
     for (int i = 0; i < n - 1; i++) {
         if (s[i] > s[i + 1]) {
             inc = false;
@@ -23,7 +21,6 @@ int main() {
         if (s[i] < s[i + 1]) {
             dec = false;
         }
-        
     }
     
     if(inc) {
