@@ -1,28 +1,24 @@
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 int main() {
     int t, n;
-    
-    string s[100];
-    
     cin >> t;
     
     while (t--) {
         cin >> n;
+        vector<string> city(n);
         
-        for(int i = 0; i < n; i++) {
-            cin >> s[i];
+        for (int i = 0; i < n; i++) {
+            cin >> city[i];
         }
         
         int count = 0;
-        
         for (int i = 0; i < n; i++) {
             bool found = false;
-            
             for (int j = 0; j < i; j++) {
-                if(s[i] == s[j]) {
+                if (city[i] == city[j]) {
                     found = true;
                     break;
                 }
@@ -31,6 +27,6 @@ int main() {
                 count++;
             }
         }
-        cout << count << endl;
+        cout << count << "\n";
     }
 }
